@@ -78,9 +78,9 @@ timing ./main
 3. rs ( 12.195837259292603 s to compile, 2 dependencies, 1.7413506269454957 runtime on average, syntax noise 0.1883594499520307 and bin file size of 390480 bytes )
 ```
 
-c for life
-c++ > rs in compile time, dependencies, syntax noise and binary size
-rs > c++ in runtime
+-   c for life
+-   c++ > rs in compile time, dependencies, syntax noise and binary size
+-   rs > c++ in runtime
 
 # running bruhst urself
 
