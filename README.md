@@ -87,3 +87,10 @@ timing ./main
 ```sh
 python3 bench.py
 ```
+
+# what does it test
+
+-   file io ( buffering )
+-   fib ( recursion and conditions )
+-   sort ( iteration, conditions, memory )
+-   n-body simulation ( math, structures, iteration )
