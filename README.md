@@ -94,3 +94,10 @@ python3 bench.py
 -   fib ( recursion and conditions )
 -   sort ( iteration, conditions, memory )
 -   n-body simulation ( math, structures, iteration )
+
+# requirements
+
+-   cargo
+-   python3
+-   clang ( both clang and clang++ )
+-   lld
