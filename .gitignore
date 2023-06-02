@@ -1,0 +1,6 @@
+*.o
+.ccls-cache/
+*.elf
+target/
+main
+.mypy_cache/
