@@ -90,7 +90,7 @@ python3 bench.py
 
 # what does it test
 
--   threading iteration sum ( threading, iteration, math )
+-   threading iteration ( threading, iteration, math, cast )
 -   file io ( buffering )
 -   fib ( recursion and conditions )
 -   sort ( iteration, conditions, memory )
