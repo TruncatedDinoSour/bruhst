@@ -73,14 +73,14 @@ timing ./main
 
 >>> leaderboard <<<
 
-1. c ( 0.32715678215026855 s to compile, 0 dependencies, 1.1410829305648803 runtime on average, syntax noise 0.17436770428015563 and bin file size of 6120 bytes )
-2. cc ( 0.7837331295013428 s to compile, 0 dependencies, 1.2440528988838195 runtime on average, syntax noise 0.17442143727162 and bin file size of 7872 bytes )
-3. rs ( 19.951916217803955 s to compile, 2 dependencies, 1.320226514339447 runtime on average, syntax noise 0.18710388536786993 and bin file size of 408792 bytes )
+1. c ( 0.4601764678955078 s to compile, 0 dependencies, 1.2762893915176392 runtime on average, syntax noise 0.17436770428015563 and bin file size of 6056 bytes )
+2. cc ( 0.7707672119140625 s to compile, 0 dependencies, 1.1842130303382874 runtime on average, syntax noise 0.17442143727162 and bin file size of 7872 bytes )
+3. rs ( 20.62468671798706 s to compile, 2 dependencies, 1.3575071334838866 runtime on average, syntax noise 0.18710388536786993 and bin file size of 408792 bytes )
 ```
 
 -   c for life
--   c++ > rust
--   rust < c++
+-   c++ > rust in compile time, dependencies, syntax noise and bin size
+-   rust > c++ in runtime
 
 # running bruhst urself
 

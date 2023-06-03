@@ -7,8 +7,8 @@ use std::thread;
 const G: f64 = 6.6743e-11;
 const N: usize = 10000;
 const BODIES_N: usize = 20;
-const NUM_THREADS: usize = 4;
 const DT: f64 = 0.1;
+const NUM_THREADS: usize = 4;
 
 fn io(data: &[i32]) {
     let mut file = File::create("/tmp/.tmpfile").unwrap();

@@ -9,7 +9,7 @@
 #define N           10000
 #define BODIES_N    20
 #define DT          0.1
-#define NUM_THREADS 6
+#define NUM_THREADS 4
 
 #ifndef M_PI
 #define M_PI 3.141592653589793
