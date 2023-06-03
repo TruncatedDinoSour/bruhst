@@ -2,11 +2,13 @@
 #include <iostream>
 #include <ctime>
 #include <fstream>
+#include <pthread.h>
 
-#define G        6.6743e-11
-#define N        10000
-#define BODIES_N 20
-#define DT       0.1
+#define G           6.6743e-11
+#define N           10000
+#define BODIES_N    20
+#define DT          0.1
+#define NUM_THREADS 4
 
 #ifndef M_PI
 #define M_PI 3.141592653589793
@@ -96,10 +98,30 @@ static void simulate_bodies(struct Body *const bodies) {
     }
 }
 
+/* threads */
+
+static void *threading(void *thread_arg) {
+    unsigned long thread_id;
+    long double sum = 0.0;
+    unsigned idx;
+
+    thread_id = (unsigned long)thread_arg;
+
+    for (idx = 0; idx < N * 100; ++idx)
+        sum += sin(sqrt(M_PI / (idx + 1)) - thread_id);
+
+    sum = (unsigned int)sum - 1;
+    (void)sum;
+
+    pthread_exit(NULL);
+}
+
 int main(void) {
     double mass, distance, angle, speed;
-    unsigned idx;
+    unsigned long idx;
     clock_t start_time;
+
+    static pthread_t threads[NUM_THREADS];
 
     static int barr[N];
 
@@ -141,7 +163,16 @@ int main(void) {
     for (idx = 0; idx < N; ++idx)
         simulate_bodies(bodies);
 
+    /* threads */
+
+    for (idx = 0; idx < NUM_THREADS; ++idx)
+        pthread_create(&threads[idx], NULL, threading, (void *)idx);
+
+    for (idx = 0; idx < NUM_THREADS; ++idx)
+        pthread_join(threads[idx], NULL);
+
     std::cout << (double)(clock() - start_time) / CLOCKS_PER_SEC << '\n';
 
+    pthread_exit(NULL);
     return 0;
 }

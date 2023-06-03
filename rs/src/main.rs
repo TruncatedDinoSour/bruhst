@@ -2,10 +2,12 @@ use std::f64::consts::PI;
 use rand::Rng;
 use std::fs::File;
 use std::io::prelude::*;
+use std::thread;
 
 const G: f64 = 6.6743e-11;
 const N: usize = 10000;
 const BODIES_N: usize = 20;
+const NUM_THREADS: usize = 4;
 const DT: f64 = 0.1;
 
 fn io(data: &[i32]) {
@@ -94,6 +96,17 @@ fn simulate_bodies(bodies: &mut [Body]) {
     }
 }
 
+#[allow(unused_variables)]
+fn threading(thread_id: usize) {
+    let mut sum: f64 = 0.0;
+
+    for idx in 0..(N * 100) {
+        sum += (std::f64::consts::PI / (idx + 1) as f64).sqrt() - thread_id as f64;
+    }
+
+    sum = sum.floor() - 1.0;
+}
+
 fn main() {
     let mut bodies = [Body {
         x: 0.0,
@@ -106,6 +119,7 @@ fn main() {
     let mut rng = rand::thread_rng();
 
     let mut barr = vec![0i32; N];
+    let mut threads = vec![];
 
     for i in 0..N {
         barr[i] = rand::random();
@@ -148,6 +162,16 @@ fn main() {
 
     for _ in 0..N {
         simulate_bodies(&mut bodies);
+    }
+
+    // threads
+
+    for idx in 0..NUM_THREADS {
+        threads.push(thread::spawn(move || threading(idx)));
+    }
+
+    for thread in threads {
+        thread.join().unwrap();
     }
 
     println!(
