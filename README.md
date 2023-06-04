@@ -80,7 +80,7 @@ timing ./main
 
 -   c for life
 -   c++ > rust in compile time, dependencies, syntax noise and bin size
--   rust > c++ in runtime
+-   rust > c++ in runtime ( although if ur not doing threaded computation, even that its barely significant )
 
 # running bruhst urself
 
