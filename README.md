@@ -85,7 +85,7 @@ timing ./main
 ## runs
 
 - 2023/06/04 ( older hw, 2 cores 4 threads, intel i3 8 th gen, 4 gig ram )
-- 2023/09/02 ( new hw, 4 cores 8 threads, amd ryzen 5 7530u, 8 gig ram )
+- 2023/09/02 ( new hw, 6 cores 12 threads, amd ryzen 5 7530u, 8 gig ram )
 
 # running bruhst urself
 
